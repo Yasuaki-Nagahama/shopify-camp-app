@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:dev.sqlite"
+  provider = "postgresql"
+  url      =  process.env.DB_URL
 }
 
 model Session {
@@ -19,4 +19,11 @@ model Session {
   expires     DateTime?
   accessToken String
   userId      BigInt?
+}
+
+model Timestamp {
+    id String @id
+    shop String
+    timestamp DateTime?
+    userId BigInt?
 }
