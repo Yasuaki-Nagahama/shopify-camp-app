@@ -20,10 +20,3 @@ model Session {
   accessToken String
   userId      BigInt?
 }
-
-model Timestamp {
-    id String @id
-    shop String
-    timestamp DateTime?
-    userId BigInt?
-}
