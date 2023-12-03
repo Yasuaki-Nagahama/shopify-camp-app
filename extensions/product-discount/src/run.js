@@ -26,7 +26,7 @@ export function run(input) {
   const targets = input.cart.lines
   // Only include cart lines with a quantity of two or more
   // and a targetable product variant
-  .filter(line => line.quantity >= 2 &&
+  .filter(line => line.quantity >= 4 &&
     line.merchandise.__typename == "ProductVariant")
   .map(line => {
     const variant = /** @type {ProductVariant} */ (line.merchandise);
@@ -54,7 +54,7 @@ export function run(input) {
         // Define a percentage-based discount
         value: {
           percentage: {
-            value: "10.0"
+            value: "20.0"
           }
         }
       }
