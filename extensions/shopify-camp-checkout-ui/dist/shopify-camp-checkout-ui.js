@@ -1133,7 +1133,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState(initialState) {
+          function useState2(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1157,7 +1157,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback(callback, deps) {
+          function useCallback2(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1923,7 +1923,7 @@
           exports.memo = memo2;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback;
+          exports.useCallback = useCallback2;
           exports.useContext = useContext3;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
@@ -1935,7 +1935,7 @@
           exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState;
+          exports.useState = useState2;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -19127,11 +19127,21 @@
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
   var BlockStack = createRemoteComponent("BlockStack");
 
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/DatePicker/DatePicker.mjs
+  var Day;
+  (function(Day2) {
+    Day2[Day2["Sunday"] = 0] = "Sunday";
+    Day2[Day2["Monday"] = 1] = "Monday";
+    Day2[Day2["Tuesday"] = 2] = "Tuesday";
+    Day2[Day2["Wednesday"] = 3] = "Wednesday";
+    Day2[Day2["Thursday"] = 4] = "Thursday";
+    Day2[Day2["Friday"] = 5] = "Friday";
+    Day2[Day2["Saturday"] = 6] = "Saturday";
+  })(Day || (Day = {}));
+  var DatePicker = createRemoteComponent("DatePicker");
+
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text = createRemoteComponent("Text");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/TextField/TextField.mjs
-  var TextField = createRemoteComponent("TextField");
 
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/View/View.mjs
   var View = createRemoteComponent("View");
@@ -19470,13 +19480,11 @@ ${errorInfo.componentStack}`);
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
   var BlockStack2 = createRemoteReactComponent(BlockStack);
 
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/DatePicker/DatePicker.mjs
+  var DatePicker2 = createRemoteReactComponent(DatePicker);
+
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text2 = createRemoteReactComponent(Text);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/TextField/TextField.mjs
-  var TextField2 = createRemoteReactComponent(TextField, {
-    fragmentProps: ["accessory"]
-  });
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/View/View.mjs
   var View2 = createRemoteReactComponent(View);
@@ -19501,22 +19509,28 @@ ${errorInfo.componentStack}`);
     return api;
   }
 
-  // extensions/shopify-camp-checkout-ui/src/Checkout.tsx
+  // extensions/shopify-camp-checkout-ui/src/Shipping.tsx
+  var import_react14 = __toESM(require_react());
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var Checkout_default = reactExtension(
-    "purchase.checkout.block.render",
+  var Shipping_default = reactExtension(
+    "purchase.checkout.shipping-option-list.render-before",
     () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Extension, {})
   );
   function Extension() {
+    const [date, setDate] = (0, import_react14.useState)("");
+    const handleChange = (0, import_react14.useCallback)(
+      (newValue) => setDate(newValue),
+      []
+    );
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { padding: "base", border: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
         Banner2,
         {
-          status: "critical",
-          title: "Your payment details couldn\u2019t be verified. Check your card details and try again."
+          status: "success",
+          title: "Please select any desired delivery date"
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { padding: "base", border: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextField2, { label: "last name" }) })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { padding: "base", border: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(DatePicker2, { selected: date, onChange: handleChange }) })
     ] });
   }
 

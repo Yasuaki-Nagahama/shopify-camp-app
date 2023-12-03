@@ -15,8 +15,8 @@ handle = "shopify-camp-checkout-ui"
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/extension-targets-overview
 
 [[extensions.targeting]]
-module = "./src/Checkout.tsx"
-target = "purchase.checkout.block.render"
+module = "./src/Shipping.tsx"
+target = "purchase.checkout.shipping-option-list.render-before"
 
 [[extensions.targeting]]
 module = "./src/Thankyou.tsx"
