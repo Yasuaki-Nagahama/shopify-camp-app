@@ -1,0 +1,12 @@
+<h3>{{ block.settings.product.metafields.demo.staff_comment_title.value }}</h3>
+<p>{{ block.settings.product.metafields.demo.staff_comment.value }}</p>
+
+{% schema %}
+{
+  "name": "Staff Comment",
+  "target": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true }
+  ]
+}
+{% endschema %}
