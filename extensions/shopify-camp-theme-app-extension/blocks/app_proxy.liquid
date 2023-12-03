@@ -1,0 +1,25 @@
+<p id="target"></p>
+
+<script>
+  const shopUrl = '{{ shop.secure_url }}';
+  const appProxyUrl = `${shopUrl}/apps/shopify-camp-app-proxy`;
+
+  fetch(`${appProxyUrl}`, {
+    method: "GET"
+  }).then((res) => {
+    res.json().then((data, errors) => {
+      document.getElementById("target").innerHTML = 'App proxy resut ⇒ ID:' + data['id'] + ' RESULT:' + data['result'];
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "App Proxy",
+  "target": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "product", "autofill": true }
+  ]
+}
+{% endschema %}
+
