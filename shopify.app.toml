@@ -2,19 +2,19 @@
 
 name = "camp-app"
 client_id = "672cffc44067d947f995095beaf0f5e5"
-application_url = "https://ago-pride-aka-wagner.trycloudflare.com"
+application_url = "https://keeps-antibody-rid-however.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "read_products,read_product_listings,write_products, write_discounts"
 
 [auth]
 redirect_urls = [
-  "https://ago-pride-aka-wagner.trycloudflare.com/auth/callback",
-  "https://ago-pride-aka-wagner.trycloudflare.com/auth/shopify/callback",
-  "https://ago-pride-aka-wagner.trycloudflare.com/api/auth/callback",
-  "https://ago-pride-aka-wagner.trycloudflare.com/.shopify/graphiql/auth/callback"
+  "https://keeps-antibody-rid-however.trycloudflare.com/auth/callback",
+  "https://keeps-antibody-rid-however.trycloudflare.com/auth/shopify/callback",
+  "https://keeps-antibody-rid-however.trycloudflare.com/api/auth/callback",
+  "https://keeps-antibody-rid-however.trycloudflare.com/.shopify/graphiql/auth/callback"
 ]
 
 [webhooks]
